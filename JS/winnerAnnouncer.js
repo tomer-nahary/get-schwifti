@@ -1,12 +1,26 @@
 class WinnerAnnouncer {
-    #winnerNode;
-    constructor() {
-        this.#winnerNode = document.getElementById("win-announce");
-    }
-    reset() {
-        this.#winnerNode.classList.remove("display-win");
+    #registerContainer;
+    #registerInput;
+    #registerButton;
+    constructor(registerContainer, registerInput, registerButton) {
+        this.#registerContainer = registerContainer;
+        this.#registerInput = registerInput;
+        this.#registerButton = registerButton;
+        this.#addEvenetListeners();
     }
     announceWinner() {
-        this.#winnerNode.classList.add("display-win");
+        this.#registerContainer.classList.add("display-register-container");
+        setTimeout(() => this.#registerContainer.classList.add("animate-register-container"), .1);
+    }
+    #addEvenetListeners() {
+        this.#registerButton.addEventListener("click", () => this.#addToleaderboard());
+    }
+    #addToleaderboard() {
+        const userName = this.#registerInput.value;
+        if (!userName) return;
+        this.#registerInput.value = "";
+        alert(userName + " You won");
+        this.#registerContainer.classList.remove("display-register-container");
+        this.#registerContainer.classList.remove("animate-register-container")
     }
 }
