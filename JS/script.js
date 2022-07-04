@@ -17,4 +17,5 @@ function generateBoard() {
     boardDisplayer.display(boardManager);
 }
 generateButton.addEventListener("click", generateBoard);
+generateBoard();
 
