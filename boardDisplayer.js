@@ -16,7 +16,7 @@ class BoardDisplayer {
                 const tileElement = document.createElement("div");
                 tileElement.classList.add("board-tile");
                 tileElement.id = getTileId(tileIndex);
-                tileElement.innerText = tileNumber;
+                tileElement.innerText = tileNumber == 0 ? "" : tileNumber;
                 tileElement.addEventListener("click", () => this.#onTileClicked(boardManager, tileIndex))
                 rowElement.append(tileElement);
             }
