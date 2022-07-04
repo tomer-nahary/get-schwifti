@@ -9,4 +9,11 @@
     direction: rtl;
 }
 
-#win-announce {}
+.win-announce {
+    color: transparent;
+    transition: color .3s ease-in-out;
+}
+
+.display-win {
+    color: black;
+}
