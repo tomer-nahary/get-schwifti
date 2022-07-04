@@ -15,20 +15,24 @@
     <link rel="stylesheet" href="Styles/gloabal.css">
     <link rel="stylesheet" href="Styles/board.css">
     <link rel="stylesheet" href="Styles/user-info.css">
+    <link rel="stylesheet" href="Styles/register.css">
     <title>Document</title>
 </head>
 
 <body>
+    <div id="register-container" class="register-container">
+        <h1>ברכות על הניצחון!</h1>
+        <input type="text" placeholder="הכנס את שמך" id="register-name">
+        <input type="button" value="הירשם" id="register-button">
+    </div>
     <div class="container">
         <div class="user-info">
-            <input type="text" name="name" id="user-name" placeholder="הכנס את שמך">
             <div class="size-selector">
                 <div id="board-size">4</div>
                 <input type="button" value="+" id="increase-size">
                 <input type="button" value="-" id="decrease-size">
             </div>
             <input type="button" value="יצירת לוח" id="generate-button">
-            <div id="win-announce" class="win-announce">ברכותיינו! ניצחת את המשחק.</div>
         </div>
         <div id="board"></div>
     </div>
