@@ -1,6 +1,9 @@
 class BoardManager {
-    constructor(board) {
+    #gameWon;
+    constructor(board, winnerAnnouncer) {
         this.board = board;
+        this.winnerAnnouncer = winnerAnnouncer;
+        this.#gameWon = false;
         this.activeTile = this.#getActiveTile();
     }
     #getActiveTile() {
@@ -11,11 +14,14 @@ class BoardManager {
         return -1;
     }
     onTileClick(tileIndex) {
-        if (!this.#checkTileValidity(Number(tileIndex))) return [false];
+        if (this.#gameWon || !this.#checkTileValidity(Number(tileIndex))) return [false];
         const tilesIndexes = [true, this.activeTile, tileIndex];
         this.#switchTiles(this.activeTile, tileIndex);
         this.activeTile = tileIndex;
-        if (this.#checkWin()) alert("you win");
+        if (this.#checkWin()) {
+            this.#gameWon = true;
+            this.winnerAnnouncer.announceWinner();
+        }
         return tilesIndexes;
     }
     #checkTileValidity(tileIndex) {
