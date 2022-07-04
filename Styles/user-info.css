@@ -11,9 +11,9 @@
 
 .win-announce {
     color: transparent;
-    transition: color .3s ease-in-out;
 }
 
 .display-win {
+    transition: color .3s ease-in-out;
     color: black;
 }
