@@ -3,7 +3,9 @@ class Leaderboard {
     #leaders
     constructor(tableElement) {
         this.#tableElement = tableElement;
-        this.#leaders = [];
+        const storageLeaders = JSON.parse(localStorage.getItem("leaders"))
+        this.#leaders = storageLeaders ?? [];
+        this.#updateTable();
     }
     addWinner(leader) {
         let index = -1;
@@ -20,6 +22,7 @@ class Leaderboard {
             this.#leaders.push(leader);
         }
         this.#updateTable();
+        localStorage.setItem("leaders", JSON.stringify(this.#leaders))
     }
     #updateTable() {
         const headerRow = document.getElementById("leaderboard-header");
@@ -42,7 +45,7 @@ class Leaderboard {
             boardLengthColumn.innerText = leader.boardLength;
 
             const dateColumn = document.createElement("td");
-            dateColumn.innerText = leader.date.toDateString();
+            dateColumn.innerText = new Date(leader.date).toDateString();
 
             rowElement.append(levelColumn, playerNameColumn, gameLengthColumn, boardLengthColumn, dateColumn);
             tbodyElement.append(rowElement);
