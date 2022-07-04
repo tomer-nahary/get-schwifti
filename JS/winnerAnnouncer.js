@@ -2,13 +2,18 @@ class WinnerAnnouncer {
     #registerContainer;
     #registerInput;
     #registerButton;
-    constructor(registerContainer, registerInput, registerButton) {
+    #leaderboard
+    #leader;
+
+    constructor(registerContainer, registerInput, registerButton, leaderboard) {
         this.#registerContainer = registerContainer;
         this.#registerInput = registerInput;
         this.#registerButton = registerButton;
+        this.#leaderboard = leaderboard;
         this.#addEvenetListeners();
     }
-    announceWinner() {
+    announceWinner(leader) {
+        this.#leader = leader;
         this.#registerContainer.classList.add("display-register-container");
         setTimeout(() => this.#registerContainer.classList.add("animate-register-container"), .1);
     }
@@ -18,8 +23,9 @@ class WinnerAnnouncer {
     #addToleaderboard() {
         const userName = this.#registerInput.value;
         if (!userName) return;
+        this.#leader.playerName = userName;
+        this.#leaderboard.addWinner(this.#leader);
         this.#registerInput.value = "";
-        alert(userName + " You won");
         this.#registerContainer.classList.remove("display-register-container");
         this.#registerContainer.classList.remove("animate-register-container")
     }
