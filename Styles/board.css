@@ -1,0 +1,24 @@
+#board {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.board-row {
+    display: flex;
+    align-self: center;
+    gap: 10px;
+}
+
+.board-tile {
+    font-size: 40px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+    color: white;
+    background-color: #335fdb;
+}
