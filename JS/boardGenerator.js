@@ -36,8 +36,8 @@ class BoardGenerator {
             }
         }
         if (board.length % 2 === 0) {
-            let zeroIndex = board.findIndex(n => n === 0) + 1;
-            counter += zeroIndex % Math.sqrt(board.length) + 1;
+            let zeroIndex = board.findIndex(n => n === 0);
+            counter += zeroIndex / Math.sqrt(board.length) + 1;
         }
         return counter % 2 === 0;
     }
