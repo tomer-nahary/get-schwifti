@@ -11,8 +11,26 @@ class BoardManager {
         return -1;
     }
     onTileClick(tileIndex) {
-        const tilesIndexes = [this.activeTile, tileIndex];
+        if (!this.#checkTileValidity(Number(tileIndex))) return [false];
+        const tilesIndexes = [true, this.activeTile, tileIndex];
         this.activeTile = tileIndex;
         return tilesIndexes;
+    }
+    #checkTileValidity(tileIndex) {
+        const rowsNumber = this.board.rowsNumber;
+        const columnNumber = this.board.length / rowsNumber;
+        if (tileIndex === this.activeTile + columnNumber ||
+            tileIndex === this.activeTile - columnNumber) {
+            return true;
+        }
+        if ((tileIndex + 1) % columnNumber !== 0 &&
+            tileIndex === this.activeTile - 1) {
+            return true;
+        }
+        if (tileIndex % columnNumber !== 0 &&
+            tileIndex === this.activeTile + 1) {
+            return true;
+        }
+        return false;
     }
 }

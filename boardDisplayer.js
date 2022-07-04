@@ -24,7 +24,8 @@ class BoardDisplayer {
         board.rowsNumber
     }
     #onTileClicked(boardManager, tileIndex) {
-        let [index1, index2] = boardManager.onTileClick(tileIndex);
+        let [isMoveValie, index1, index2] = boardManager.onTileClick(tileIndex);
+        if (!isMoveValie) return;
         this.#switchTiles(index1, index2);
     }
     #switchTiles(index1, index2) {
