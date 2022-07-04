@@ -13,6 +13,7 @@ class BoardManager {
     onTileClick(tileIndex) {
         if (!this.#checkTileValidity(Number(tileIndex))) return [false];
         const tilesIndexes = [true, this.activeTile, tileIndex];
+        this.#switchTiles(this.activeTile, tileIndex);
         this.activeTile = tileIndex;
         return tilesIndexes;
     }
@@ -32,5 +33,10 @@ class BoardManager {
             return true;
         }
         return false;
+    }
+    #switchTiles(index1, index2) {
+        const temp = this.board.tiles[index1]
+        this.board.tiles[index1] = this.board.tiles[index2];
+        this.board.tiles[index2] = temp;
     }
 }
