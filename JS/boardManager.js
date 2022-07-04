@@ -15,6 +15,7 @@ class BoardManager {
         const tilesIndexes = [true, this.activeTile, tileIndex];
         this.#switchTiles(this.activeTile, tileIndex);
         this.activeTile = tileIndex;
+        if (this.#checkWin()) alert("you win");
         return tilesIndexes;
     }
     #checkTileValidity(tileIndex) {
@@ -38,5 +39,11 @@ class BoardManager {
         const temp = this.board.tiles[index1]
         this.board.tiles[index1] = this.board.tiles[index2];
         this.board.tiles[index2] = temp;
+    }
+    #checkWin() {
+        for (let i = 0; i < this.board.tiles.length - 1; i++) {
+            if (this.board.tiles[i] != i + 1) return false;
+        }
+        return true;
     }
 }
