@@ -9,11 +9,6 @@
     direction: rtl;
 }
 
-.win-announce {
-    color: transparent;
-}
-
-.display-win {
-    transition: color .3s ease-in-out;
-    color: black;
+.user-info input {
+    font-size: 20px;
 }
