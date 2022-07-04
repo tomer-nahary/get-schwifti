@@ -6,9 +6,12 @@ const registerContainer = document.getElementById("register-container")
 const registerInput = document.getElementById("register-name");
 const registerButton = document.getElementById("register-button");
 const boardElement = document.getElementById("board");
+const tableElement = document.getElementById("leaderboard-table");
+
 
 const boardGenerator = new BoardGenerator();
-const winnerAnnouncer = new WinnerAnnouncer(registerContainer, registerInput, registerButton);
+const leaderboard = new Leaderboard(tableElement);
+const winnerAnnouncer = new WinnerAnnouncer(registerContainer, registerInput, registerButton, leaderboard);
 const sizePicker = new SizePicker(increaseElement, decreaseElement, boardSizeElement);
 const boardDisplayer = new BoardDisplayer(boardElement);
 
@@ -19,4 +22,3 @@ function generateBoard() {
 }
 generateButton.addEventListener("click", generateBoard);
 generateBoard();
-
