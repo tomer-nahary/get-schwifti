@@ -6,6 +6,7 @@
     direction: ltr;
     margin-top: 40px;
     user-select: none;
+    margin-bottom: 20px;
 }
 
 .board-row {
