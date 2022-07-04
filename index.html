@@ -10,6 +10,7 @@
     <script src="JS/boardManager.js" defer></script>
     <script src="JS/boardDisplayer.js" defer></script>
     <script src="JS/winnerAnnouncer.js" defer></script>
+    <script src="JS/sizePicker.js" defer></script>
     <script src="JS/script.js" defer></script>
     <link rel="stylesheet" href="Styles/gloabal.css">
     <link rel="stylesheet" href="Styles/board.css">
@@ -22,11 +23,11 @@
         <div class="user-info">
             <input type="text" name="name" id="user-name" placeholder="הכנס את שמך">
             <div class="size-selector">
-                <div class="size">4</div>
-                <input type="button" value="+">
-                <input type="button" value="-">
+                <div id="board-size">4</div>
+                <input type="button" value="+" id="increase-size">
+                <input type="button" value="-" id="decrease-size">
             </div>
-            <input type="button" value="יצירת לוח">
+            <input type="button" value="יצירת לוח" id="generate-button">
             <div id="win-announce" class="win-announce">ברכותיינו! ניצחת את המשחק.</div>
         </div>
         <div id="board"></div>
