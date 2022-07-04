@@ -3,6 +3,8 @@
     flex-direction: column;
     justify-content: center;
     gap: 10px;
+    direction: ltr;
+    margin-top: 40px;
 }
 
 .board-row {
